@@ -1,0 +1,99 @@
+\documentclass[answers]{exam}
+
+% Símbolos
+\usepackage{recycle}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% definimos el diccionario del idioma
+\usepackage[spanish]{babel}
+
+% Figuras
+\usepackage{graphicx}
+
+% Márgenes
+\addtolength{\voffset}{-1cm}
+\addtolength{\hoffset}{-1.5cm}
+\addtolength{\textwidth}{3cm}
+\addtolength{\textheight}{2cm}
+
+%% Definimos lema.
+\newtheorem{lemma}{Lema}
+
+% Información del Encabezado
+\runningheader{Computación Concurrente}{Práctica 03}{\today}
+\runningheadrule{}
+\footer{}{Página \thepage\ de \numpages}{}
+\footrule{}
+\thispagestyle{headandfoot}
+\renewcommand{\solutiontitle}{\noindent\textbf{Solución:}\enspace}
+
+% Punto decimal
+\decimalpoint
+
+\begin{document}
+
+\input{portada.tex}
+\newpage
+
+
+\section{Teoría:}
+\begin{enumerate}
+    \item Proponer 4 problemas donde se pueda utilizar el algoritmo de Peterson para su solución.
+    \begin{solution}
+        \begin{itemize}
+            \item Gestionar el uso de una computadora para dos roomies.
+            \item Controlar las horas de salida de dos personas.
+            \item Administrar el uso de un hangar para dos avionetas en un pequeño aeropuerto.
+            \item Dar prioridad a uno de los dos procesos para un recurso que gestiona las llegadas de entrada en una empresa.
+        \end{itemize}
+    \end{solution}
+
+    \item Proponer 2 problemas donde se pueda utilizar el Algoritmo del Filtro
+    \begin{solution}
+        \begin{itemize}
+            \item Dar prioridad al préstamo de libros a usuarios con suscripción en una librería.
+            \item Priorizar $n$ procesos sobre algunos recursos en un sistema operativo.
+        \end{itemize}
+    \end{solution}
+
+    Responde las siguientes preguntas, justificando tu respuesta:
+    \begin{itemize}
+        \item ¿Los algoritmos cumplen con No Deadlock?
+        \begin{solution}
+            Sí cumplen porque los procesos primero ingresarán a la sección crítica con seguridad, por lo tanto, si un proceso se adelanta entonces éste ingresaría a la sección crítica.
+        \end{solution}
+
+        \item ¿El Algoritmo de Peterson cumple con la propiedad de Justicia?
+        \begin{solution}
+           Si cumple la propiedad de justicia, ya que en el algoritmo de Peterson cuando un proceso  y quieren entrar  a su región crítica este mediante las banderas dirán que quiere entrar a su región  para después ceden su  turno y se quedará  en una espera ocupada donde estará preguntando si es el turno del otro proceso y si el otro proceso quiere usar la región crítica  y esto sucederá  hasta que el otro proceso deje de usar la región crítica donde después de ocupar la región crítica se dirá mediante la bandera que no se quiere entrar a la región crítica por lo que el que el proceso que estaba en la espera ocupada  saldrá de la espera ocupada para así entrar a su región crítica por lo que  en algún momento cuando el proceso que esté en su región crítica salga  entonces el otro podrá entrar a su región crítica y si un proceso está en su región no crítica esto no afectará al que quiera acceder a su región crítica ya que mediante la  bandera del proceso que está en su región esta indicara que no no quiere entrar a su región crítica por lo que el que quiere entrar a su región crítica saldra de la espera ocupada para entrar a su región crítica.
+        \end{solution}
+
+        \item ¿Cuál de estos algoritmos cumple con la propiedad Libre de Hambruna?
+        \begin{solution}
+           \begin{itemize}
+               \item  El algoritmo de Peterson
+               \item El algoritmo del Filtro
+           \end{itemize}
+        \end{solution}
+
+        \item ¿Cumplen con Exclusión Mutua?
+        \begin{solution}
+            Sí cumplen ya que se encargan de gestionar los procesos para que usen los recursos de manera organizada y con la finalidad que no se produzcan problemas.
+        \end{solution}
+
+    \end{itemize}
+\end{enumerate}
+
+\section{Referencias:}
+\begin{itemize}
+    \item OS Paterson Solution - javatpoint. (s.f.). www.javatpoint.com. Recuperado 23 de octubre de 2022,\\ de https://www.javatpoint.com/os-paterson-solution
+    \item (S/f). Utexas.edu. Recuperado el 23 de octubre de 2022, de\\ http://users.ece.utexas.edu/~garg/dist/jbkv2/Peterson-Proof.pdf
+    \item Exclusión mutua - Win32 apps. (2022, 24 septiembre). Microsoft Learn. Recuperado 23 de octubre de 2022, de\\ https://learn.microsoft.com/es-es/windows/win32/wmformat/mutual-exclusion
+     \item seguridad y vivacidad/viveza - PDF Free Download. (s. f.). Recuperado 29 de octubre de 2022, de\\ https://docplayer.es/203743104-Seguridad-y-vivacidad-viveza.html
+    \item Algoritmo de Peterson - frwiki.wiki. (s. f.). Recuperado 29 de octubre de 2022, de\\ https://es.frwiki.wiki/wiki/Algorithme_de_Peterson
+\end{itemize}
+
+
+\end{document}

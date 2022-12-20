@@ -1,3 +1,5 @@
+package com.concurrente;
+
 /**
  * Interfaz para crear un candado que cumpla con exclusion mutua
  */

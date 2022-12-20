@@ -1,3 +1,5 @@
+package com.concurrente;
+
 public interface Semaforo {
     
     /**

@@ -1,3 +1,5 @@
+package com.concurrente;
+
 public class PetersonLockTest {
     static final int ITERATIONS = 100;
     static final int MAX_VALUE = 50000;
